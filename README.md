@@ -38,11 +38,13 @@ ImageViewer-4 的实现已经与 Telegram 的非常接近了。
 
 作为单图浏览的话，与 Telegram 的目标已相差不大。
 
+注意：上下滑动的 pan 手势的 delegate 尽量不要设置 UIScrollView 自身。因为 UIScrollView 内部手势会使用 self 作为 delegate，需要避免影响到内部的滚动行为。
+
 ## ImageViewer-3
 
 使用 UIScrollView 嵌套实现多图浏览器。但是还需在大数据量的使用场景做封装。
 
-一个关键点是上下滑动的 pan 手势的 delegate 不能设置为 UIScrollView 自身。
+注意：上下滑动的 pan 手势的 delegate 不能设置为 UIScrollView 自身。
 因为 UIScrollView.panGestureRecognizer.delegate 就是这个 UIScrollView 本身，添加为 self 会导致 UIScrollView 的滚动出现问题。
 
 ### 已知问题
@@ -55,7 +57,7 @@ ImageViewer-4 的实现已经与 Telegram 的非常接近了。
 
 使用 UICollectionView + UIScrollView 实现的多图浏览器。
 
-一个关键点是上下滑动的 pan 手势的 delegate 不能设置为 UIScrollView 自身。
+注意：上下滑动的 pan 手势的 delegate 不能设置为 UIScrollView 自身。
 因为 UIScrollView.panGestureRecognizer.delegate 就是这个 UIScrollView 本身，添加为 self 会导致 UIScrollView 的滚动出现问题。
 
 ### 已知问题
